@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail Page
+{% endblock title %}
+
+{% block body %}
+<h2>Name </h2>
+{{object.name}}
+<h2>Image</h2>
+<img src= "{{object.image.url}}" alt= "{{object.name}}" style= "width:100%;height:auto">
+<p>
+    {{ object.description}}
+</p>
+<p>
+    ${{ object.price}}
+</p>
+{% endblock body %}

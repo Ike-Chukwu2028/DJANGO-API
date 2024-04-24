@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block title %}
+Homepage
+{% endblock title %}
+
+{% block body %}
+<h2>This is Homepage</h2>
+{% for product in products %}
+<a href= "{% url 'detail' product.id %}">
+<p>{{product.name}}</p>
+{% thumbnail product.image "200x200" crop="center" as im %}
+    <img src="{{ product.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+<ul>
+<li>{{product.description}}</li>
+<li>${{product.price}}</li>
+</ul>
+</a>
+<hr>
+{% endfor %}
+{% endblock body %}
